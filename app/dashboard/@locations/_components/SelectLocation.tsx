@@ -25,7 +25,7 @@ const SelectLocation = ({locations, store}: {locations:Locations[], store: strin
         >
             {locations.map((location: Locations) => {
                 return (
-                    <SelectItem key={location.locationId} value={location.locationId}>
+                    <SelectItem key={location.locationId} id={location.locationId.toString()}>
                         {location.locationName}
                     </SelectItem>
                 )
