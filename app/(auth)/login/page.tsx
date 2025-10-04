@@ -42,7 +42,7 @@ const LoginPage = () => {
                     color="primary" 
                     type="submit" 
                     disabled={submitting}
-                    className="bg-blue-700 rounded-lg px-10 y-5 text-white"
+                    className="bg-blue-700 rounded-lg px-10 py-2 text-white"
                 >
                     {submitting ? "Enviando..." : "Iniciar sesión"}
                 </Button>
