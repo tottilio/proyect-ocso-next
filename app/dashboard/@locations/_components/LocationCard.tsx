@@ -1,18 +1,22 @@
 import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import { Locations } from "@/entities";
-import axios from "axios";
 import { cookies } from "next/headers";
-import { API_URL, TOKEN_NAME } from "@/constants";
+import { API_URL } from "@/constants";
 import Link from "next/link";
+import { authHeaders } from "@/helpers/authHeaders";
 
 const LocationCard = async ({ store }: { store: string | string[] | undefined }) => {
     if(!store) return null
-    const token = cookies().get(TOKEN_NAME)?.value
-    const { data } = await axios.get<Locations>(`${API_URL}/locations/${store}`, {
+    const res = await fetch(`${API_URL}/locations/${store}`, {
         headers: {
-            Authorization: `Bearer ${token}`
+            ...authHeaders()
+        },
+        next: {
+            tags: ["dashboard:locations", `dashboard:locations:${store}`]
         }
     })
+
+    const data: Locations = await res.json()
 
     return (
         <Card className="bg-zinc-50 p-5 rounded-md">

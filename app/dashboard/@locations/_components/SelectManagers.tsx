@@ -2,6 +2,8 @@
 import { Locations, Managers } from "@/entities";
 import { Select, SelectItem } from "@heroui/react";
 
+//📌 To fixes
+
 const SelectManager = async ({managers, locations}: {managers: Managers[], locations: Locations[]}) => {
     
     const disableKeys = locations
