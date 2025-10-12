@@ -17,15 +17,18 @@ const LocationCard = async ({ store }: { store: string | string[] | undefined })
     return (
         <Card>
             <CardHeader>
-                <b className="w-full">{data.locationName}</b>
+                <b className="w-full text-2xl">{data.locationName}</b>
             </CardHeader>
                 <Divider />
-            <CardBody>
+            <CardBody className="flex flex-col w-full items-center">
                 <p className="w-full">
-                    Manager: 
+                    Manager:{" "}
                     <Link href={{pathname: `/dashboard/managers`}}> 
                         <b>{data.manager?.[0]?.managerFullName}</b> 
                     </Link> 
+                </p>
+                <p className="w-full">
+                    Dirección: <b>{data.locationAdress}</b>  
                 </p>
             </CardBody>
         </Card>

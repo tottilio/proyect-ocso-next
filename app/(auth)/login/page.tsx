@@ -35,7 +35,7 @@ const LoginPage = () => {
 
     return (
         <>
-            {errorLoading &&
+            {errorLoading && // --> Error al cargar en la petición
                 <div className="bg-red-600 text-white my-5 px-4 py-2 rounded-md">
                     <h2>Error al cargar</h2>
                     <p>Intentalo de nuevo</p>

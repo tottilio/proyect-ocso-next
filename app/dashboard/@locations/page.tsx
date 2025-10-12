@@ -1,16 +1,17 @@
 import axios from "axios";
-import { TOKEN_NAME } from '@/constants'
+import { API_URL, TOKEN_NAME } from '@/constants'
 import { cookies } from 'next/headers'
 import { Locations } from "@/entities";
 import SelectLocation from "./_components/SelectLocation";
 import LocationCard from "./_components/LocationCard";
+import FormNnewLocation from "./_components/FormNnewLocation";
 
 
 const LocationsPage = async ({searchParams} : {searchParams: {[key: string]: string | string[] | undefined  }}) => {
 
     const userCookies = cookies()
     const token = userCookies.get(TOKEN_NAME)?.value
-    let { data } = await axios.get<Locations[]>("http://127.0.0.1:4000/locations", {
+    let { data } = await axios.get<Locations[]>(`${API_URL}/locations`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -35,6 +36,7 @@ const LocationsPage = async ({searchParams} : {searchParams: {[key: string]: str
                 <div className="w-8/12">
                     <LocationCard store={searchParams.store} />
                 </div>
+                <FormNnewLocation/>
             </div>
         </div>
     );
