@@ -15,7 +15,7 @@ const LocationCard = async ({ store }: { store: string | string[] | undefined })
     })
 
     return (
-        <Card>
+        <Card className="bg-zinc-50 p-5 rounded-md">
             <CardHeader>
                 <b className="w-full text-2xl">{data.locationName}</b>
             </CardHeader>
@@ -24,7 +24,7 @@ const LocationCard = async ({ store }: { store: string | string[] | undefined })
                 <p className="w-full">
                     Manager:{" "}
                     <Link href={{pathname: `/dashboard/managers`}}> 
-                        <b>{data.manager?.[0]?.managerFullName}</b> 
+                        <b>{data.manager && data.manager.length > 0 ? data.manager[0].managerFullName : "Sin gerente"}</b> 
                     </Link> 
                 </p>
                 <p className="w-full">

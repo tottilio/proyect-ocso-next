@@ -5,15 +5,17 @@ import { Locations } from "@/entities";
 import SelectLocation from "./_components/SelectLocation";
 import LocationCard from "./_components/LocationCard";
 import FormNnewLocation from "./_components/FormNnewLocation";
+import DeleteButtonlocation from "./_components/DeleteButtomLocation";
+import { authHeaders } from "@/helpers/authHeaders";
 
 
-const LocationsPage = async ({searchParams} : {searchParams: {[key: string]: string | string[] | undefined  }}) => {
+const LocationsPage = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
 
     const userCookies = cookies()
     const token = userCookies.get(TOKEN_NAME)?.value
     let { data } = await axios.get<Locations[]>(`${API_URL}/locations`, {
         headers: {
-            Authorization: `Bearer ${token}`
+            ...authHeaders()
         }
     })
     data = [
@@ -31,12 +33,15 @@ const LocationsPage = async ({searchParams} : {searchParams: {[key: string]: str
         <div className="w-8/12">
             <div className="w-full h-[90vh] bg-red-50 flex flex-col items-center">
                 <div className="w-1/2 my-10">
-                    <SelectLocation locations={data} store={searchParams?.store}/>
+                    <SelectLocation locations={data} store={searchParams?.store} />
                 </div>
                 <div className="w-8/12">
                     <LocationCard store={searchParams.store} />
                 </div>
-                <FormNnewLocation/>
+                <div className="w-6/12">
+                    <FormNnewLocation searchParams={searchParams} />
+                </div>
+                <DeleteButtonlocation store={searchParams.store} />
             </div>
         </div>
     );

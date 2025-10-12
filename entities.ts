@@ -3,7 +3,7 @@ export interface Locations {
     locationName: string
     locationAdress: string
     locationLatLng: number[]
-    manager?: Managers[]
+    manager: Managers[]
     region?:any
     employees: Employee[]
 }
@@ -15,7 +15,7 @@ export interface Employee {
     employeePhoneNumber:string
     employeeEmail: string
     employeePhoto?: string
-    location?: Location
+    location?: Locations[]
     user?: any
 }
 
@@ -25,6 +25,6 @@ export interface Managers {
     managerSalary: number
     managerEmail: string
     managerPhoneNumber: string
-    location:Location
+    location:Locations[]
     user?: any
 }
