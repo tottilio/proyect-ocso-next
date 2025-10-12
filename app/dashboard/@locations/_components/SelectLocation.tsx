@@ -25,7 +25,7 @@ const SelectLocation = ({locations, store}: {locations:Locations[], store: strin
         >
             {locations.map((location: Locations) => {
                 return (
-                    <SelectItem className="bg-slate-100 py-1" key={location.locationId} id={location.locationId.toString()}>
+                    <SelectItem textValue={location.locationName} className="bg-slate-100 py-1" key={location.locationId} id={location.locationId.toString()}>
                         {location.locationName}
                         <Divider/>
                     </SelectItem>

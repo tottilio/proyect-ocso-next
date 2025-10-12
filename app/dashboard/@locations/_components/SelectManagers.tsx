@@ -4,10 +4,10 @@ import { Select, SelectItem } from "@heroui/react";
 
 const SelectManager = async ({managers, locations}: {managers: Managers[], locations: Locations[]}) => {
     
-    const disableKeys = locations.map((location: Locations) => {
-        return location.manager?.managerId 
+    const disableKeys = locations
+  .map((location: Locations) => location.manager?.[0]?.managerId)
+  .filter(Boolean);
 
-    }).filter((managerId) => managerId === undefined)
     return (
         <Select label="Manager" className="bg-zinc-100" name="managerId" disabledKeys={disableKeys} aria-label="Manager">
             {managers.map((manager: Managers) => {
