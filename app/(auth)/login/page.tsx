@@ -23,7 +23,10 @@ const LoginPage = () => {
             const response = await fetch(`${API_URL}/auth/login`, {
                 body: JSON.stringify(authData),
                 credentials: 'include',
-                method: 'POST'
+                method: 'POST',
+                headers:{
+                      'Content-Type': 'application/json'
+                }
              })
             if (response.status === 201) router.push('/dashboard')
             setSubmitting(false)

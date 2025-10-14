@@ -1,13 +1,11 @@
 'use server'
-import { TOKEN_NAME } from "@/constants"
 import { authHeaders } from "@/helpers/authHeaders"
-import { cookies } from "next/headers"
 import { API_URL } from "@/constants"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { Locations } from "@/entities"
 
-export const createLocation = async (formData: FormData) => {
+export const updateLocation = async (store: string, formData: FormData) => {
 
   const locationName = String(formData.get("locationName") || "");
   const locationAdress = String(formData.get("locationAddress") || ""); // CUIDADO: Adress
@@ -23,8 +21,8 @@ export const createLocation = async (formData: FormData) => {
   console.log("📦 Enviando payload:", payload);
 
   try {
-    const response = await fetch(`${API_URL}/locations`, {
-      method: "POST",
+    const response = await fetch(`${API_URL}/locations/${store}`, {
+      method: "PATCH",
       credentials: "include",
       body: JSON.stringify(payload),
       headers: {
@@ -35,8 +33,9 @@ export const createLocation = async (formData: FormData) => {
 
     const {locationId}: Locations = await response.json(); 
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       revalidateTag("dashboard:location");
+      revalidateTag(`dashboard:location:${store}`);
       redirect(`/dashboard?store=${locationId}`);
     }
 

@@ -5,6 +5,8 @@ import LocationCard from "./_components/LocationCard";
 import FormNnewLocation from "./_components/FormNnewLocation";
 import DeleteButtonlocation from "./_components/DeleteButtomLocation";
 import { authHeaders } from "@/helpers/authHeaders";
+import UpdateLocation from './_components/UpdateLocation';
+import FormUpdateLocation from './_components/FormUpdateForLocation';
 
 
 const LocationsPage = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
@@ -17,8 +19,8 @@ const LocationsPage = async ({ searchParams }: { searchParams: { [key: string]: 
             tags: ["dashboard:locations"]
         }
     })
-    let data:Locations[] = await res.json()
-    
+    let data: Locations[] = await res.json()
+
     data = [
         {
             locationId: 0,
@@ -43,7 +45,12 @@ const LocationsPage = async ({ searchParams }: { searchParams: { [key: string]: 
                 <div className="w-6/12">
                     <FormNnewLocation searchParams={searchParams} />
                 </div>
-                <DeleteButtonlocation store={searchParams.store} />
+                <div className='flex flex-row flex-grow-0 gap-10 items-center'>
+                    <DeleteButtonlocation store={searchParams.store} />
+                    <UpdateLocation store={searchParams.store}>
+                        <FormUpdateLocation store={searchParams.store} />
+                    </UpdateLocation>
+                </div>
             </div>
         </div>
     );

@@ -10,18 +10,20 @@ const FormNnewLocation = async ({searchParams}: {searchParams: {[key: string]: s
 
     const responseManagers = await fetch(`${API_URL}/managers`,{
         headers:{
-            ...authHeaders
+            ...authHeaders(),
         },
+        credentials: 'include',
         next: {
-            tags: ["dashbboard:managers"]
+            tags: ["dashboard:managers"]
         }
     })
     const dataManagers: Managers[] = await responseManagers.json()
 
     const responseLocation = await fetch(`${API_URL}/locations`, {
         headers:{
-            ...authHeaders
+            ...authHeaders()
         },
+        credentials:'include',
         next:{
             tags: ["dashboard:locations"]
         }
