@@ -3,7 +3,6 @@ import { Provider } from "@/entities";
 import { authHeaders } from "@/helpers/authHeaders";
 import ProviderCard from "./_components/ProviderCard";
 import Link from "next/link";
-import { LuPlus } from "react-icons/lu";
 import CreateProvider from "./_components/CreateProvider";
 import FormCreateProvider from "./_components/FormCreateProvider";
 
@@ -16,9 +15,9 @@ const ProvidersPage = async () => {
     const providers: Provider[] = await res.json()
     return (
         <div className="flex flex-grow-0 flex-col h-[90vh] items-end w-full px-10 pt-10">
-            <CreateProvider>
+            {/* <CreateProvider> */}
             <FormCreateProvider/>
-            </CreateProvider>
+            {/* </CreateProvider> */}
             <div className="w-full flex flex-row flex-grow-0 py-20 gap-14 flex-wrap" >
                 {providers.map((provider: Provider) => (
                     <Link className="hover:scale-110 transition-transform " href={{ pathname: `/dashboard/providers/${provider.providerId}` }}>

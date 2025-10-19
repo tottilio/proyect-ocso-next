@@ -1,3 +1,4 @@
+'use client'
 import { Modal,Button, ModalBody, ModalContent } from "@heroui/react";
 import { useDisclosure } from "@heroui/react";
 import { ReactNode } from "react";

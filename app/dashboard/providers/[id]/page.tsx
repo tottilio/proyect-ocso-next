@@ -1,9 +1,5 @@
 const ProviderPage = () => {
-
-    
-    return (
-        
-    );
+return       "Sin id";
 }
  
 export default ProviderPage;
