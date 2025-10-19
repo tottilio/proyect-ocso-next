@@ -1,7 +1,5 @@
 'use server'
-import { TOKEN_NAME } from "@/constants"
 import { authHeaders } from "@/helpers/authHeaders"
-import { cookies } from "next/headers"
 import { API_URL } from "@/constants"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
