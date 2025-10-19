@@ -12,7 +12,7 @@ const createManager = async (formData: FormData) => {
     const res = await fetch(`${API_URL}/managers`, {
         method: 'POST',
         body: JSON.stringify(manager),
-        headers:{...authHeaders()}
+        headers:{...authHeaders(), 'Content-type': 'application/json'}
     })
 
     if ( res.status === 201) revalidateTag("dashboard:managers")
