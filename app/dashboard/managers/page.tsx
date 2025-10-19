@@ -1,9 +1,6 @@
-const ManagersPage = () => {
-    return (
-        <div>
-            Managers
-        </div>
-    );
+const ManagersPage = async () => {
+
+    return null
 }
  
 export default ManagersPage;

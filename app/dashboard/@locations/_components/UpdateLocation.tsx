@@ -1,5 +1,5 @@
 'use client'
-import { Modal,ModalContent, ModalHeader,ModalBody,ModalFooter,Button, useDisclosure } from "@heroui/react";
+import { Modal,ModalContent,ModalBody,Button, useDisclosure } from "@heroui/react";
 import { ReactNode } from "react";
 import { LuPencil } from "react-icons/lu";
 

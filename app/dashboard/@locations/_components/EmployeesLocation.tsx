@@ -21,7 +21,7 @@ const EmployeesLocation = async ({ store }: { store: string | string[] | undefin
     return data.map((employee: Employee) => {
         const fullName = employee.employeeName + " " + employee.employeeLastName;
         return (
-            <Card className="mx-10 my-10">
+            <Card className="mx-10 my-10" key={employee.employeeId}>
                 <CardHeader>
                     <p className="w-full">Nombre: <b>{fullName}</b></p>
                 </CardHeader>
