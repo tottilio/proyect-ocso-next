@@ -16,7 +16,7 @@ const FormUpdateManager = async ({manager} : {manager: Managers}) => {
 
     return (
         <form action={updateManagerId} className="bg-orange-400 rounded-md flex flex-col flex-grow-0  gap-2" >
-            <h1>Actualizar Manager</h1>
+            <h1 className="text-2xl text-white font-semibold text-center ">Actualizar Manager</h1>
             <Input isRequired required={true} label="Nombre completo:" defaultValue={manager.managerFullName} placeholder="Marco Aurelio" name="managerFullName"  />
             <Input isRequired required={true} label="Correo electronico:" defaultValue={manager.managerEmail} placeholder="manager@ocso.com" name="managerEmail"  />
             <Input isRequired required={true} label="Salario:" defaultValue={String(manager.managerSalary)} placeholder="12000" name="managerSalary"  />

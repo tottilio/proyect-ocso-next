@@ -4,15 +4,15 @@ export interface Locations {
     locationAdress: string
     locationLatLng: number[]
     manager: Managers[]
-    region?:any
+    region?: any
     employees: Employee[]
 }
 
 export interface Employee {
-    employeeId:string
-    employeeName:string
+    employeeId: string
+    employeeName: string
     employeeLastName: string
-    employeePhoneNumber:string
+    employeePhoneNumber: string
     employeeEmail: string
     employeePhoto?: string
     location?: Locations[]
@@ -25,6 +25,22 @@ export interface Managers {
     managerSalary: number
     managerEmail: string
     managerPhoneNumber: string
-    location:Locations[]
+    location: Locations[]
     user?: any
+}
+
+export interface Provider {
+    providerId: string
+    providerName: string
+    providerEmail: string
+    providerPhoneNumber: string
+    products: Product[]
+}
+
+export interface Product {
+    productId: string
+    productName: string
+    productPrice: number
+    productSeal: number
+    provider: Provider
 }

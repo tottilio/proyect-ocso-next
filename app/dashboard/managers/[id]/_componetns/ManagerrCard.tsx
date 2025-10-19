@@ -12,10 +12,11 @@ const ManagerrCard = ({manager}: {manager: Managers}) => {
             <CardBody>
                 <p className="w-full">Email: <b>{manager.managerEmail}</b></p>
                 <p className="w-full">Telefono: <b>{manager.managerPhoneNumber}</b></p>
+                <p className="w-full">Salario: <b>{manager.managerSalary}</b></p>
                 {manager.location ? (
                     <p>Tienda: <Link href={{ pathname:`/dashboard`, query: {store: manager?.location?.locationId} }}>
                         <b className="underline"> 
-                            {manager.location.locationName}
+                            {manager.location?.locationName}
                         </b>
                         </Link>
                     </p>

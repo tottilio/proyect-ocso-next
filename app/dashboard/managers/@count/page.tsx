@@ -28,7 +28,7 @@ const CountManagerPage = async () => {
             <h1>Hay {managers.length} manager{managers.length > 1 ? "s" : ""}</h1>
             <h1>Hay {countNoStore} sin tiendas</h1>
             <h1>El salario maximo es {max} sin tiendas</h1>
-            <h1>El salario promedio es {(salary/managers.length)} sin tiendas</h1>
+            <h1>El salario promedio es {(salary/managers.length).toFixed(2)} sin tiendas</h1>
         </Card>
     );
 }

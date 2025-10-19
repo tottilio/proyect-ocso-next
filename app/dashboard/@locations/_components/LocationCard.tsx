@@ -37,7 +37,7 @@ const LocationCard = async ({ store }: { store: string | string[] | undefined })
                 <p className="w-full">
                     Manager:{" "}
                     <Link href={{ pathname: `/dashboard/managers/${data.manager?.managerId}` }}>
-                        <b>{managerName}</b>
+                        <b className="underline">{managerName}</b>
                     </Link>
                 </p>
                 <p className="w-full">
