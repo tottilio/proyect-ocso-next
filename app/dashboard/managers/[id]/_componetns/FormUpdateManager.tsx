@@ -15,11 +15,12 @@ const FormUpdateManager = async ({manager} : {manager: Managers}) => {
     const stores = await resStores.json()
 
     return (
-        <form action={updateManagerId} className="bg-orange-400 rounded-md" >
+        <form action={updateManagerId} className="bg-orange-400 rounded-md flex flex-col flex-grow-0  gap-2" >
             <h1>Actualizar Manager</h1>
-            <Input defaultValue={manager.managerFullName} placeholder="Marco Aurelio" name="managerFullName"  />
-            <Input defaultValue={manager.managerEmail} placeholder="manager@ocso.com" name="managerEmail"  />
-            <Input defaultValue={String(manager.managerPhoneNumber)} placeholder="manager@ocso.com" name="44228947565"  />
+            <Input isRequired required={true} label="Nombre completo:" defaultValue={manager.managerFullName} placeholder="Marco Aurelio" name="managerFullName"  />
+            <Input isRequired required={true} label="Correo electronico:" defaultValue={manager.managerEmail} placeholder="manager@ocso.com" name="managerEmail"  />
+            <Input isRequired required={true} label="Salario:" defaultValue={String(manager.managerSalary)} placeholder="12000" name="managerSalary"  />
+            <Input isRequired required={true} label="Numero telefonico:" defaultValue={manager.managerPhoneNumber} placeholder="4425648958" name="managerPhoneNumber"  />
             <SelectStore stores={stores} defaultStore={manager?.location?.locationId} />
             <button type="submit" className="bg-blue-500" >Actualizar</button>
         </form>

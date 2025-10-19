@@ -4,12 +4,12 @@ import { Select, SelectItem } from "@heroui/react";
 
 const SelectStore = ({stores, defaultStore}: {stores:Locations[], defaultStore: number}) => {
     const disableStores = stores.map((store:Locations) => {
-            if(store.manager !== undefined){
+            if(store.manager !== undefined  && store.locationId !== defaultStore){
                 return String(store.locationId)
             }
     }).filter((storeId) => storeId !== undefined)
     return (
-        <Select defaultSelectedKeys={defaultStore?[defaultStore]:undefined} disabledKeys={disableStores}>
+        <Select label="Tienda" name="location" defaultSelectedKeys={defaultStore?[defaultStore]:undefined} disabledKeys={disableStores}>
             {
                 stores.map((store: Locations) => {
                     return  (
