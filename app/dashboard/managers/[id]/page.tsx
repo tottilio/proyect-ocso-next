@@ -17,7 +17,7 @@ const ManagerPage = async ({ params }: { params: { id: string } }) => {
     return (
         <div className="flex flex-col gap-10 flex-grow-0 items-center justify-center ">
             <ManagerrCard manager={data} />
-            <div className={'bg-white shadow-md rounded-md px-10 py-2 flex flex-row flex-grow-0 gap-2'}>
+            <div className={'bg-white shadow-md rounded-md px-10 py-2 flex flex-col items-center flex-grow-0 gap-5 '}>
                 {/* <UpdateManager> */}
                     <FormUpdateManager manager={data} />
                 {/* </UpdateManager> */}

@@ -10,7 +10,8 @@ import FormCreateProvider from "./_components/FormCreateProvider";
 const ProvidersPage = async () => {
 
     const res = await fetch(`${API_URL}/providers`, {
-        headers: { ...authHeaders() }
+        headers: { ...authHeaders() },
+        next:{tags:["dashboard:providers"]}
     });
     const providers: Provider[] = await res.json()
     return (

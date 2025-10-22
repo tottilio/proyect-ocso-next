@@ -4,8 +4,8 @@ import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 
 const ProviderCard = ({ provider }: { provider: Provider }) => {
     return (
-        <Card className="w-full min-w-[350px] bg-slate-100" >
-            <CardHeader>{provider.providerName}</CardHeader>
+        <Card className="w-full min-w-[350px] bg-white max-w-[350px] rounded-xl" >
+            <CardHeader><b> {provider.providerName}</b></CardHeader>
             <Divider />
             <CardBody>
                 <p>Correo electrónico:</p>

@@ -22,7 +22,7 @@ const ManagerCard = async () => {
         const fullName = manager.managerFullName;
         return (
             <Link href={{pathname: `/dashboard/managers/${manager.managerId}`}}>
-                <Card className="mx-10 my-10 bg-zinc-50 p-5 rounded-md hover:scale-[110%] hover:bg-blue-100 border-gray-400 " key={manager.managerId}>
+                <Card className="mx-10 my-10 bg-white p-5 rounded-xl transition-all hover:scale-[110%] hover:bg-blue-100 border-gray-400 " key={manager.managerId}>
                     <CardHeader>
                         <p className="w-full">Nombre: <b>{fullName}</b></p>
                     </CardHeader>
