@@ -12,8 +12,8 @@ const deleteProvider = async (providerId: string, formData: FormData) => {
     })
 
     if(res.status === 200) {
-        revalidateTag("dashboard:providers");
-        redirect("/dashboard/providers");
+        revalidateTag("dashboard:providers")
+        redirect("/dashboard/providers")
     }
 }
 
