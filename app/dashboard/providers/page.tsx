@@ -3,7 +3,6 @@ import { Provider } from "@/entities";
 import { authHeaders } from "@/helpers/authHeaders";
 import ProviderCard from "./_components/ProviderCard";
 import Link from "next/link";
-import CreateProvider from "./_components/CreateProvider";
 import FormCreateProvider from "./_components/FormCreateProvider";
 
 

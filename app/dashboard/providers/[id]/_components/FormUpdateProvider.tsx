@@ -1,6 +1,7 @@
 import updateProvider from "@/actions/providers/update";
 import { Provider } from "@/entities";
 import { Input } from "@heroui/react";
+import DeleteButton from "./DeleteButton";
 
 const FormUpdateProvider = ({ provider }: { provider: Provider }) => {
     const { providerId } = provider
@@ -14,6 +15,7 @@ const FormUpdateProvider = ({ provider }: { provider: Provider }) => {
                 <Input className="bg-gray-50 rounded-lg max-w-[250px]" defaultValue={provider.providerEmail} label="Correo:" placeholder="business@pecsi.com" name="providerEmail" />
                 <Input className="bg-gray-50 rounded-lg max-w-[250px]" defaultValue={provider.providerPhoneNumber} label="Numero:" placeholder="442XXXYYYY" name="providerPhoneNumber" />
                 <button className="bg-blue-500 rounded-lg p-2 text-white" type="submit" >Actualizar</button>
+                <DeleteButton providerId={providerId}  />
             </form>
         </div>
     );
