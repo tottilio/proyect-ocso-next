@@ -18,7 +18,7 @@ export const createLocation = async (formData: FormData) => {
     locationLatLng: [locationLat, locationLong],
   };
 
-  console.log("📦 Enviando payload:", payload);
+  console.log("Enviando payload:", payload);
 
   try {
     const response = await fetch(`${API_URL}/locations`, {
@@ -39,6 +39,6 @@ export const createLocation = async (formData: FormData) => {
     }
 
   } catch (error: any) {
-    console.error("❌ Error al crear la ubicación:", error.message);
+    console.error("Error al crear la ubicación:", error.message);
   }
 }

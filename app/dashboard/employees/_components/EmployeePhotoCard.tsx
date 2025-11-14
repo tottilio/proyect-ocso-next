@@ -1,5 +1,5 @@
 import { Employee } from "@/entities";
-import { Button, Card, CardBody, CardFooter, CardHeader, Image } from "@heroui/react"
+import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Image } from "@heroui/react"
 import Link from "next/link";
 
 const EmployeePhotoCard = ({employee}: {employee: Employee}) => {
@@ -8,7 +8,8 @@ const EmployeePhotoCard = ({employee}: {employee: Employee}) => {
             <CardHeader className="absolute top-0 bg-black bg-opacity-25 z-10 ">
                 <h1 className="font-bold text-xl text-white drop-shadow-sm">{employee.employeeName + " " + employee.employeeLastName}</h1> 
             </CardHeader>
-            <Image src={employee.employeePhoto} className="z-10" classNames={{img: "size-72"}} />
+            <Divider/>
+            <Image src={employee.employeePhoto} className="z-0 object-cover" classNames={{img: "size-72"}} isZoomed/>
             <CardFooter className="absolute bottom-0 py-2 h-14" >
                 <Link href={{ pathname: `/dashboard/employees/${employee.employeeId}` }} >
                     <Button variant="ghost">Actualizar datos</Button>

@@ -14,14 +14,15 @@ const EmployeePage = async () => {
         const employees: Employee[] = await res.json()
 
     return (
-        <div className="flex flex-wrap flex-grow-0 h-[90vh] gap-4 overflow-y-auto p-10 ">
-            {employees.map((employee: Employee) => {
+        <div >
+            {employees?.map((employee: Employee) => {
                 if(employee.employeePhoto !== null){
                     return <EmployeePhotoCard key={employee.employeeId} employee={employee}/>
                 } else {
                     return <EmployeeCard key={employee.employeeId} employee={employee}/>
                 }
-            })}
+                
+            })|| null}
         </div>
     );
 }
