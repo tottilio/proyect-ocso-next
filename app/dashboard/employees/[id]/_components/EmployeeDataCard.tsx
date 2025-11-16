@@ -3,6 +3,7 @@ import { Image } from "@heroui/react";
 import Link from "next/link";
 import DeleteEmployee from "./DeleteEmployee";
 import FormCreateUser from "./FormCreateUser";
+import FormUpdateUser from "./FormUpdateUser";
 
 const EmployeeDataCard = ({ employee }: { employee: Employee }) => {
     return (
@@ -26,7 +27,7 @@ const EmployeeDataCard = ({ employee }: { employee: Employee }) => {
                 }} />
             </div>
             {
-                !employee.user && <FormCreateUser employee={employee} />
+                !employee.user ? <FormCreateUser employee={employee}/> : <FormUpdateUser user={employee.user}/>
             }
         </div>
     );

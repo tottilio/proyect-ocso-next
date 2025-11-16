@@ -9,6 +9,12 @@ const createManager = async (formData: FormData) => {
     for(const key of formData.keys()){
         manager[key] = formData.get(key)
     }
+    manager.managerSalary = +manager.managerSalary
+    if(manager.location) {
+        manager.location = +manager.location
+    } else {
+        delete manager.location
+    }
     const res = await fetch(`${API_URL}/managers`, {
         method: 'POST',
         body: JSON.stringify(manager),

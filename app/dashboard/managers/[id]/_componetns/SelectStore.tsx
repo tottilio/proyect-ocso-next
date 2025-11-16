@@ -2,7 +2,7 @@
 import { Locations } from "@/entities";
 import { Select, SelectItem } from "@heroui/react";
 
-const SelectStore = ({stores, defaultStore}: {stores:Locations[], defaultStore: number}) => {
+const SelectStore = ({stores, defaultStore}: {stores:Locations[], defaultStore?: number}) => {
 
     const disableStores = stores.map((store:Locations) => {
             if(store.manager !== undefined  && store.locationId !== defaultStore){
