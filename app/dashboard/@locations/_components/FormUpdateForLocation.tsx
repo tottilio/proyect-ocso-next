@@ -31,7 +31,7 @@ const FormUpdateLocation = async ({store}: {store: string | string[] | undefined
     })
     const dataLocations: Locations[] = await responseLocation.json() 
     let foundLocation = dataLocations.find((location) => location.locationId === +store)
-    let foundManager = dataManagers.find((manager) => manager.managerId === foundLocation?.manager.managerId)
+    // let foundManager = dataManagers.find((manager) => manager.managerId === foundLocation?.manager.managerId)
     
     return (
         <form action={updateWhitStoreId} className="bg-orange-400 py-2 px-4 flex flex-col gap-6 w-full rounded-lg">
@@ -40,7 +40,7 @@ const FormUpdateLocation = async ({store}: {store: string | string[] | undefined
             <Input defaultValue={foundLocation?.locationAdress?.toString() ?? ""} label="Dirección" placeholder="Av. de la luz #120"name="locationAddress" />
             <Input defaultValue={foundLocation?.locationLatLng[0]?.toString() ?? ""} label="Latitud" placeholder="-129" name="locationLat" />
             <Input defaultValue={foundLocation?.locationLatLng[1]?.toString() ?? ""} label="Longitud" placeholder="304" name="locationLong" />
-            <SelectManager defaultManager={foundManager?.managerId} managers={dataManagers} locations={dataLocations} />
+            <SelectManager managers={dataManagers} locations={dataLocations} />
             <button type="submit" className="bg-orange-300 p-3 rounded-md hover:bg-blue-600 hover:text-white transition-all">Actualizar</button>
         </form>
     );

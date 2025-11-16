@@ -36,7 +36,7 @@ const LocationCard = async ({ store }: { store: string | string[] | undefined })
             <CardBody className="flex flex-col w-full items-center">
                 <p className="w-full">
                     Manager:{" "}
-                    <Link href={{ pathname: `/dashboard/managers/${data.manager?.managerId}` }}>
+                    <Link href={{ pathname: `/dashboard/managers/${data.manager}` }}>
                         <b className="underline">{managerName}</b>
                     </Link>
                 </p>
